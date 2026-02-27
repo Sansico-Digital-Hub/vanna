@@ -1,0 +1,13 @@
+[phases.setup]
+nixPkgs = ["python3", "gcc"]
+
+[phases.install]
+cmds = [
+    "python -m venv /opt/venv",
+    ". /opt/venv/bin/activate && pip install --upgrade build setuptools",
+    ". /opt/venv/bin/activate && pip install ."
+]
+
+[staticAssets]
+# This ensures the README is available during the build phase
+"README.md" = "README.md"
